@@ -7,8 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { useForm, ValidationError } from '@formspree/react'
-import emailjs from '@emailjs/browser'
+// Removed Formspree React hook - using native HTML form submission instead
 
 const socialLinks = [
   {
@@ -32,44 +31,10 @@ const socialLinks = [
 ]
 
 export function Contact() {
-  // Formspree hook for reliable email delivery
-  const [state, handleFormspreeSubmit] = useForm("xnnodkgw") // Your actual Formspree form ID
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    console.log('Form submitting with data:', formData)
-    console.log('Formspree state:', state)
-    
-    try {
-      // Use Formspree for reliable delivery
-      await handleFormspreeSubmit(e)
-      console.log('Formspree submission completed')
-    } catch (error) {
-      console.error('Form submission error:', error)
-    }
-    
-    setIsSubmitting(false)
-  }
-
-  // Check if form was successfully submitted
-  if (state.succeeded) {
+  // Show success message after form submission
+  if (isSubmitted) {
     return (
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +46,7 @@ export function Contact() {
               Thank you for reaching out! I'll get back to you as soon as possible.
             </p>
             <Button
-              onClick={() => window.location.reload()}
+              onClick={() => setIsSubmitted(false)}
               className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"
             >
               Send Another Message
@@ -129,7 +94,15 @@ export function Contact() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  action="https://formspree.io/f/xnnodkgw" 
+                  method="POST"
+                  className="space-y-6"
+                  onSubmit={() => {
+                    // Show success message after a delay
+                    setTimeout(() => setIsSubmitted(true), 1000)
+                  }}
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -138,17 +111,9 @@ export function Contact() {
                       <Input
                         id="name"
                         name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
                         placeholder="Your name"
                         required
                         className="transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
-                      />
-                      <ValidationError 
-                        prefix="Name" 
-                        field="name"
-                        errors={state.errors}
-                        className="text-red-500 text-sm"
                       />
                     </div>
                     <div className="space-y-2">
@@ -159,17 +124,9 @@ export function Contact() {
                         id="email"
                         name="email"
                         type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
                         placeholder="your@email.com"
                         required
                         className="transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
-                      />
-                      <ValidationError 
-                        prefix="Email" 
-                        field="email"
-                        errors={state.errors}
-                        className="text-red-500 text-sm"
                       />
                     </div>
                   </div>
@@ -180,59 +137,23 @@ export function Contact() {
                     <Textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
                       placeholder="Tell me about your project or just say hello!"
                       rows={6}
                       required
                       className="transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
                     />
-                    <ValidationError 
-                      prefix="Message" 
-                      field="message"
-                      errors={state.errors}
-                      className="text-red-500 text-sm"
-                    />
                   </div>
 
-                  {/* Display general errors */}
-                  {state.errors && Object.keys(state.errors).length > 0 && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                      <p className="text-red-600 text-sm font-medium">
-                        There was an error submitting your form. Please check the fields above and try again.
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Display submitting status */}
-                  {state.submitting && (
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <p className="text-blue-600 text-sm font-medium">
-                        Submitting your message...
-                      </p>
-                    </div>
-                  )}
+                  {/* Hidden fields for better email formatting */}
+                  <input type="hidden" name="_subject" value="New message from Portfolio Contact Form" />
+                  <input type="hidden" name="_next" value="https://portfolio-ege9wo8ul-kelvins-projects-e3a5059b.vercel.app/?success=true" />
 
                   <Button
                     type="submit"
-                    disabled={state.submitting}
-                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02]"
                   >
-                    {state.submitting ? (
-                      <>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"
-                        />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
+                    <Send className="mr-2 h-4 w-4" />
+                    Send Message
                   </Button>
                 </form>
               </CardContent>
