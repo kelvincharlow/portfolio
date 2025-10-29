@@ -98,9 +98,11 @@ export function Contact() {
                   action="https://formspree.io/f/xnnodkgw" 
                   method="POST"
                   className="space-y-6"
-                  onSubmit={() => {
+                  target="_blank"
+                  onSubmit={(e) => {
+                    console.log('Form submitting...')
                     // Show success message after a delay
-                    setTimeout(() => setIsSubmitted(true), 1000)
+                    setTimeout(() => setIsSubmitted(true), 2000)
                   }}
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
