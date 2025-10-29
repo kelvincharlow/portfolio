@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { useForm, ValidationError } from '@formspree/react'
 import emailjs from '@emailjs/browser'
 
 const socialLinks = [
@@ -31,6 +32,9 @@ const socialLinks = [
 ]
 
 export function Contact() {
+  // Formspree hook for reliable email delivery
+  const [state, handleFormspreeSubmit] = useForm("mjkvkgnj") // We'll get your real form ID
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,52 +50,38 @@ export function Contact() {
     }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    try {
-      // EmailJS configuration
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_name: 'Kelvin Musyoki',
-      }
+    // Use Formspree for reliable delivery
+    await handleFormspreeSubmit(e)
+    
+    setIsSubmitting(false)
+  }
 
-      // Get environment variables with fallback
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_g8v9kaa'
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_7y7nwo8'
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'PdRnAndDJPGkvbzWx'
-
-      // Debug logging
-      console.log('EmailJS Config Check:')
-      console.log('Service ID available:', !!serviceId)
-      console.log('Template ID available:', !!templateId)
-      console.log('Public Key available:', !!publicKey)
-
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        publicKey
-      )
-
-      console.log('Email sent successfully:', result.text)
-      
-      // Reset form
-      setFormData({ name: '', email: '', message: '' })
-      
-      // Show success message
-      alert('Message sent successfully! I\'ll get back to you soon.')
-      
-    } catch (error) {
-      console.error('Failed to send email:', error)
-      alert('Failed to send message. Please try again or contact me directly.')
-    } finally {
-      setIsSubmitting(false)
-    }
+  // Check if form was successfully submitted
+  if (state.succeeded) {
+    return (
+      <section id="contact" className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              Message Sent! 🎉
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+              Thank you for reaching out! I'll get back to you as soon as possible.
+            </p>
+            <Button
+              onClick={() => window.location.reload()}
+              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"
+            >
+              Send Another Message
+            </Button>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
