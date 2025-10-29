@@ -54,8 +54,16 @@ export function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Use Formspree for reliable delivery
-    await handleFormspreeSubmit(e)
+    console.log('Form submitting with data:', formData)
+    console.log('Formspree state:', state)
+    
+    try {
+      // Use Formspree for reliable delivery
+      await handleFormspreeSubmit(e)
+      console.log('Formspree submission completed')
+    } catch (error) {
+      console.error('Form submission error:', error)
+    }
     
     setIsSubmitting(false)
   }
@@ -136,6 +144,12 @@ export function Contact() {
                         required
                         className="transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
                       />
+                      <ValidationError 
+                        prefix="Name" 
+                        field="name"
+                        errors={state.errors}
+                        className="text-red-500 text-sm"
+                      />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium text-foreground">
@@ -150,6 +164,12 @@ export function Contact() {
                         placeholder="your@email.com"
                         required
                         className="transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
+                      />
+                      <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                        className="text-red-500 text-sm"
                       />
                     </div>
                   </div>
@@ -167,13 +187,38 @@ export function Contact() {
                       required
                       className="transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
                     />
+                    <ValidationError 
+                      prefix="Message" 
+                      field="message"
+                      errors={state.errors}
+                      className="text-red-500 text-sm"
+                    />
                   </div>
+
+                  {/* Display general errors */}
+                  {state.errors && Object.keys(state.errors).length > 0 && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-red-600 text-sm font-medium">
+                        There was an error submitting your form. Please check the fields above and try again.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Display submitting status */}
+                  {state.submitting && (
+                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                      <p className="text-blue-600 text-sm font-medium">
+                        Submitting your message...
+                      </p>
+                    </div>
+                  )}
+
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02]"
+                    disabled={state.submitting}
+                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? (
+                    {state.submitting ? (
                       <>
                         <motion.div
                           animate={{ rotate: 360 }}
