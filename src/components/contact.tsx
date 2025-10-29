@@ -59,12 +59,23 @@ export function Contact() {
         to_name: 'Kelvin Musyoki',
       }
 
-      // Using secure environment variables
+      // Get environment variables with fallback
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_g8v9kaa'
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_7y7nwo8'
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'PdRnAndDJPGkvbzWx'
+
+      // Debug logging
+      console.log('EmailJS Config Check:')
+      console.log('Service ID available:', !!serviceId)
+      console.log('Template ID available:', !!templateId)
+      console.log('Public Key available:', !!publicKey)
+
+      // Send email using EmailJS
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        serviceId,
+        templateId,
         templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        publicKey
       )
 
       console.log('Email sent successfully:', result.text)
