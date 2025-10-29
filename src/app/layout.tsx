@@ -9,23 +9,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Frontend Developer",
-  description: "Frontend Developer • Automation Enthusiast • Remote Work Advocate. Building modern web applications with React, Next.js, and cutting-edge technologies.",
-  keywords: ["Frontend Developer", "React", "Next.js", "TypeScript", "Tailwind CSS", "Web Developer"],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
+  title: "Kelvin Musyoki - Full Stack Developer",
+  description: "Full Stack Developer • Automation Enthusiast • Remote Work Advocate. Building modern web applications with React, Next.js, Node.js, and cutting-edge technologies.",
+  keywords: ["Full Stack Developer", "React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS", "Web Developer"],
+  authors: [{ name: "Kelvin Musyoki" }],
+  creator: "Kelvin Musyoki",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://yourportfolio.com",
-    title: "Your Name - Frontend Developer",
-    description: "Frontend Developer • Automation Enthusiast • Remote Work Advocate",
-    siteName: "Your Name Portfolio",
+    title: "Kelvin Musyoki - Full Stack Developer",
+    description: "Full Stack Developer • Automation Enthusiast • Remote Work Advocate",
+    siteName: "Kelvin Musyoki Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Name - Frontend Developer",
-    description: "Frontend Developer • Automation Enthusiast • Remote Work Advocate",
+    title: "Kelvin Musyoki - Full Stack Developer",
+    description: "Full Stack Developer • Automation Enthusiast • Remote Work Advocate",
     creator: "@yourusername",
   },
   robots: {

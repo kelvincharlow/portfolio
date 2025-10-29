@@ -6,7 +6,7 @@ import { ArrowDown, Download, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const roles = [
-  'Frontend Developer',
+  'Full Stack Developer',
   'Automation Enthusiast', 
   'Remote Work Advocate'
 ]
@@ -33,8 +33,8 @@ export function Hero() {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-linear-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
-        <div className="absolute inset-0 bg-linear-to-tl from-emerald-500/10 via-blue-500/10 to-violet-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-tl from-emerald-500/10 via-blue-500/10 to-violet-500/10" />
         {/* Animated orbs */}
         <motion.div
           animate={{
@@ -46,7 +46,7 @@ export function Hero() {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-linear-to-r from-indigo-500 to-purple-600 rounded-full opacity-20 blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full opacity-20 blur-3xl"
         />
         <motion.div
           animate={{
@@ -58,7 +58,7 @@ export function Hero() {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-linear-to-r from-pink-500 to-violet-600 rounded-full opacity-20 blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-pink-500 to-violet-600 rounded-full opacity-20 blur-3xl"
         />
       </div>
 
@@ -73,8 +73,8 @@ export function Hero() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
               <span className="block text-foreground mb-2">
                 Hi, I'm{' '}
-                <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  Your Name
+                <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  Kelvin Musyoki
                 </span>
               </span>
             </h1>
@@ -114,9 +114,9 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="bg-linear-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               onClick={() => {
-                window.location.href = 'mailto:youremail@example.com'
+                window.location.href = 'mailto:kelvin.musyoki@example.com'
               }}
             >
               <Mail className="mr-2 h-5 w-5" />

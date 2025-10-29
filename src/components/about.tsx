@@ -22,7 +22,7 @@ export function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            About <span className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Me</span>
+            About <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Me</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Passionate about creating digital experiences that make a difference
@@ -40,21 +40,19 @@ export function About() {
           >
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm a passionate <strong>Frontend Developer</strong> with a love for creating 
-                beautiful, functional, and user-friendly web applications. My journey in web 
+                I'm a passionate <strong>Full Stack Developer</strong> with a love for creating 
+                beautiful, functional, and scalable web applications. My journey in web 
                 development started over 5 years ago, and I've been constantly learning and 
                 evolving with the rapidly changing landscape of modern web technologies.
               </p>
               
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Specializing in <strong>React</strong>, <strong>Next.js</strong>, and 
-                <strong> TypeScript</strong>, I build scalable applications that prioritize 
-                performance and user experience. I'm also passionate about automation and have 
-                extensive experience with <strong>Apify</strong> for web scraping and data 
-                automation projects.
-              </p>
-
-              <p className="text-lg leading-relaxed text-muted-foreground">
+                Specializing in <strong>React</strong>, <strong>Next.js</strong>, 
+                <strong>Node.js</strong>, and <strong>TypeScript</strong>, I build end-to-end 
+                applications that prioritize performance, scalability, and user experience. 
+                I'm also passionate about automation and have extensive experience with 
+                <strong> Apify</strong> for web scraping and data automation projects.
+              </p>              <p className="text-lg leading-relaxed text-muted-foreground">
                 As a <strong>remote work advocate</strong>, I've successfully collaborated with 
                 teams across different time zones, delivering high-quality solutions while 
                 maintaining excellent communication and project management skills. I believe in 
@@ -82,7 +80,7 @@ export function About() {
               >
                 <Card className="text-center hover:shadow-lg transition-shadow duration-300 border-border/50 bg-card/50 backdrop-blur-sm">
                   <CardHeader className="pb-3">
-                    <div className="mx-auto w-12 h-12 bg-linear-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4">
+                    <div className="mx-auto w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4">
                       <stat.icon className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-2xl sm:text-3xl font-bold text-foreground">

@@ -51,10 +51,10 @@ export function Navigation() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="shrink-0"
+            className="flex-shrink-0"
           >
-            <Link href="#" className="text-2xl font-bold bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
-              YN
+            <Link href="#" className="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+              KM
             </Link>
           </motion.div>
 

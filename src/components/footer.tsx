@@ -25,13 +25,13 @@ export function Footer() {
               <Heart className="h-4 w-4 text-red-500 fill-current" />
             </motion.div>
             <span className="text-muted-foreground">using</span>
-            <span className="font-semibold bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
               Next.js
             </span>
           </div>
           
           <p className="text-sm text-muted-foreground mb-4">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Kelvin Musyoki. All rights reserved.
           </p>
           
           <motion.div

@@ -13,16 +13,16 @@ const projects = [
     image: '/project-1.jpg',
     technologies: ['Next.js', 'TypeScript', 'Apify', 'Tailwind CSS', 'PostgreSQL'],
     liveUrl: 'https://remotejobfinder.demo',
-    githubUrl: 'https://github.com/yourusername/remote-job-finder',
+    githubUrl: 'https://github.com/kelvinmusyoki/remote-job-finder',
     featured: true,
   },
   {
-    title: 'E-commerce Dashboard',
-    description: 'Modern admin dashboard for e-commerce platforms with real-time analytics, inventory management, and order tracking. Built with React and Chart.js.',
+    title: 'E-commerce Platform',
+    description: 'Full-stack e-commerce platform with admin dashboard, user authentication, payment integration, and real-time analytics. Complete CRUD operations with secure API endpoints.',
     image: '/project-2.jpg',
-    technologies: ['React', 'TypeScript', 'Chart.js', 'Material-UI', 'Node.js'],
-    liveUrl: 'https://ecommerce-dashboard.demo',
-    githubUrl: 'https://github.com/yourusername/ecommerce-dashboard',
+    technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'Prisma', 'TypeScript'],
+    liveUrl: 'https://ecommerce-platform.demo',
+    githubUrl: 'https://github.com/kelvinmusyoki/ecommerce-platform',
     featured: false,
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     image: '/project-3.jpg',
     technologies: ['Next.js', 'Framer Motion', 'shadcn/ui', 'Tailwind CSS'],
     liveUrl: 'https://yourportfolio.com',
-    githubUrl: 'https://github.com/yourusername/portfolio',
+    githubUrl: 'https://github.com/kelvinmusyoki/portfolio',
     featured: false,
   },
 ]
@@ -48,7 +48,7 @@ export function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Projects</span>
+            Featured <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and personal projects
@@ -67,11 +67,11 @@ export function Projects() {
             >
               <Card className="group h-full overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm">
                 {/* Project Image */}
-                <div className="relative overflow-hidden bg-linear-to-br from-indigo-500/20 to-purple-600/20 aspect-video">
+                <div className="relative overflow-hidden bg-gradient-to-br from-indigo-500/20 to-purple-600/20 aspect-video">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full h-full bg-linear-to-br from-indigo-500 to-purple-600 opacity-80 flex items-center justify-center"
+                    className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 opacity-80 flex items-center justify-center"
                   >
                     <div className="text-white text-center p-8">
                       <h3 className="text-xl font-bold mb-2">{project.title}</h3>
@@ -107,7 +107,7 @@ export function Projects() {
                   <CardTitle className="flex items-center justify-between">
                     <span>{project.title}</span>
                     {project.featured && (
-                      <Badge variant="secondary" className="bg-linear-to-r from-indigo-500 to-purple-600 text-white">
+                      <Badge variant="secondary" className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
                         Featured
                       </Badge>
                     )}
@@ -169,7 +169,7 @@ export function Projects() {
           <Button
             variant="outline"
             size="lg"
-            onClick={() => window.open('https://github.com/yourusername', '_blank')}
+            onClick={() => window.open('https://github.com/kelvinmusyoki', '_blank')}
             className="px-8 py-3 text-lg font-semibold rounded-xl border-2 hover:bg-accent transition-all duration-300 transform hover:scale-105"
           >
             <Github className="mr-2 h-5 w-5" />

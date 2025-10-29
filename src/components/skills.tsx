@@ -27,13 +27,13 @@ const skillCategories = [
     ],
   },
   {
-    title: 'Frameworks',
+    title: 'Frontend & Backend',
     icon: Globe,
     skills: [
       { name: 'React', level: 95 },
       { name: 'Next.js', level: 90 },
-      { name: 'Node.js', level: 80 },
-      { name: 'Express', level: 75 },
+      { name: 'Node.js', level: 85 },
+      { name: 'Express.js', level: 80 },
     ],
   },
   {
@@ -47,13 +47,23 @@ const skillCategories = [
     ],
   },
   {
-    title: 'Tools & Automation',
+    title: 'Database & Tools',
+    icon: Database,
+    skills: [
+      { name: 'MongoDB', level: 85 },
+      { name: 'PostgreSQL', level: 80 },
+      { name: 'Firebase', level: 85 },
+      { name: 'Prisma', level: 75 },
+    ],
+  },
+  {
+    title: 'DevOps & Automation',
     icon: Settings,
     skills: [
-      { name: 'Apify', level: 90 },
       { name: 'Git', level: 90 },
+      { name: 'Docker', level: 75 },
       { name: 'Vercel', level: 85 },
-      { name: 'Firebase', level: 80 },
+      { name: 'Apify', level: 90 },
     ],
   },
 ]
@@ -91,7 +101,7 @@ export function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Skills & <span className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Expertise</span>
+            Skills & <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Expertise</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Technologies and tools I work with to bring ideas to life
@@ -103,14 +113,14 @@ export function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
         >
           {skillCategories.map((category, categoryIndex) => (
             <motion.div key={category.title} variants={itemVariants}>
               <Card className="h-full hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm group">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-6">
-                    <div className="p-3 rounded-xl bg-linear-to-r from-indigo-500 to-purple-600 mr-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 mr-4">
                       <category.icon className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-xl font-bold">{category.title}</h3>
@@ -140,7 +150,7 @@ export function Skills() {
                             whileInView={{ width: `${skill.level}%` }}
                             transition={{ duration: 1, delay: (categoryIndex * 0.2) + (skillIndex * 0.1), ease: "easeOut" }}
                             viewport={{ once: true }}
-                            className="h-full bg-linear-to-r from-indigo-500 to-purple-600 rounded-full relative overflow-hidden"
+                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full relative overflow-hidden"
                           >
                             <motion.div
                               animate={{ x: ['-100%', '100%'] }}
@@ -150,7 +160,7 @@ export function Skills() {
                                 ease: "linear",
                                 delay: (categoryIndex * 0.3) + (skillIndex * 0.1)
                               }}
-                              className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent w-full h-full"
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full"
                             />
                           </motion.div>
                         </div>
@@ -176,8 +186,8 @@ export function Skills() {
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              'Docker', 'GraphQL', 'REST APIs', 'MongoDB', 'PostgreSQL', 
-              'AWS', 'Jest', 'Cypress', 'Webpack', 'Vite', 'Figma', 'Photoshop'
+              'GraphQL', 'REST APIs', 'Prisma', 'Redis', 'AWS', 'Nginx',
+              'Jest', 'Cypress', 'Webpack', 'Vite', 'Figma', 'Postman'
             ].map((tech, index) => (
               <motion.div
                 key={tech}

@@ -12,19 +12,19 @@ const socialLinks = [
   {
     name: 'Email',
     icon: Mail,
-    url: 'mailto:youremail@example.com',
+    url: 'mailto:kelvin.musyoki@example.com',
     color: 'from-red-500 to-orange-500',
   },
   {
     name: 'GitHub',
     icon: Github,
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/kelvinmusyoki',
     color: 'from-gray-700 to-gray-900',
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    url: 'https://linkedin.com/in/yourprofile',
+    url: 'https://linkedin.com/in/kelvinmusyoki',
     color: 'from-blue-600 to-blue-800',
   },
 ]
@@ -74,7 +74,7 @@ export function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Let's <span className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Connect</span>
+            Let's <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Connect</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's build something amazing together!
@@ -150,7 +150,7 @@ export function Contact() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-linear-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02]"
+                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02]"
                   >
                     {isSubmitting ? (
                       <>
@@ -187,7 +187,7 @@ export function Contact() {
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-16 h-16 mx-auto mb-6 bg-linear-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center"
+                  className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center"
                 >
                   <Mail className="h-8 w-8 text-white" />
                 </motion.div>
@@ -199,7 +199,7 @@ export function Contact() {
                   Whether you have a project in mind or just want to connect, I'd love to hear from you.
                 </p>
                 <Button
-                  onClick={() => window.location.href = 'mailto:youremail@example.com'}
+                  onClick={() => window.location.href = 'mailto:kelvin.musyoki@example.com'}
                   variant="outline"
                   className="font-semibold border-2 hover:bg-accent transition-all duration-300"
                 >
@@ -232,15 +232,15 @@ export function Contact() {
                         onClick={() => window.open(link.url, '_blank')}
                         className="w-full justify-start p-4 h-auto hover:bg-accent/50 transition-all duration-300 group"
                       >
-                        <div className={`p-2 rounded-lg bg-linear-to-r ${link.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <div className={`p-2 rounded-lg bg-gradient-to-r ${link.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
                           <link.icon className="h-5 w-5 text-white" />
                         </div>
                         <div className="text-left">
                           <div className="font-semibold text-foreground">{link.name}</div>
                           <div className="text-sm text-muted-foreground">
-                            {link.name === 'Email' ? 'youremail@example.com' : 
-                             link.name === 'GitHub' ? 'github.com/yourusername' : 
-                             'linkedin.com/in/yourprofile'}
+                            {link.name === 'Email' ? 'kelvin.musyoki@example.com' : 
+                             link.name === 'GitHub' ? 'github.com/kelvinmusyoki' : 
+                             'linkedin.com/in/kelvinmusyoki'}
                           </div>
                         </div>
                       </Button>
