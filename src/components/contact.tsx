@@ -7,18 +7,19 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import emailjs from '@emailjs/browser'
 
 const socialLinks = [
   {
     name: 'Email',
     icon: Mail,
-    url: 'mailto:kelvin.musyoki@example.com',
+    url: 'mailto:kelvincharlow78@gmail.com',
     color: 'from-red-500 to-orange-500',
   },
   {
     name: 'GitHub',
     icon: Github,
-    url: 'https://github.com/kelvinmusyoki',
+    url: 'https://github.com/kelvincharlow',
     color: 'from-gray-700 to-gray-900',
   },
   {
@@ -49,18 +50,37 @@ export function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    // In a real application, you would send the data to your backend
-    console.log('Form submitted:', formData)
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' })
-    setIsSubmitting(false)
-    
-    // Show success message (you could use a toast library here)
-    alert('Message sent successfully!')
+    try {
+      // EmailJS configuration
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Kelvin Musyoki',
+      }
+
+      // Using secure environment variables
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+
+      console.log('Email sent successfully:', result.text)
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' })
+      
+      // Show success message
+      alert('Message sent successfully! I\'ll get back to you soon.')
+      
+    } catch (error) {
+      console.error('Failed to send email:', error)
+      alert('Failed to send message. Please try again or contact me directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
