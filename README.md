@@ -1,4 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Modern Portfolio Website
+
+A stunning, responsive portfolio website built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, **shadcn/ui**, and **Framer Motion**. Designed to showcase your work with beautiful animations and modern design patterns.
+
+## ✨ Features
+
+- **Modern Design**: Clean, professional layout with gradient accents
+- **Dark/Light Mode**: Seamless theme switching with system preference detection
+- **Smooth Animations**: Framer Motion powered scroll animations and micro-interactions
+- **Fully Responsive**: Mobile-first design that works on all devices
+- **Performance Optimized**: Built with Next.js 14 for fast loading and SEO optimization
+- **Type Safe**: Written in TypeScript for better developer experience
+- **Accessible**: WCAG compliant with proper semantic HTML and keyboard navigation
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Theme**: next-themes
+- **Deployment**: Vercel (recommended)
 
 ## Getting Started
 
