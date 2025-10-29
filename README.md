@@ -1,6 +1,8 @@
-# 🚀 Modern Portfolio Website
+# 🚀 Kelvin Musyoki's Portfolio
 
 A stunning, responsive portfolio website built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, **shadcn/ui**, and **Framer Motion**. Designed to showcase your work with beautiful animations and modern design patterns.
+
+**🌐 Live Site**: [View Portfolio](https://portfolio-ehls51brb-kelvins-projects-e3a5059b.vercel.app)
 
 ## ✨ Features
 
