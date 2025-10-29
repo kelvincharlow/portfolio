@@ -259,8 +259,8 @@ export function Contact() {
                         <div className="text-left">
                           <div className="font-semibold text-foreground">{link.name}</div>
                           <div className="text-sm text-muted-foreground">
-                            {link.name === 'Email' ? 'kelvin.musyoki@example.com' : 
-                             link.name === 'GitHub' ? 'github.com/kelvinmusyoki' : 
+                            {link.name === 'Email' ? 'kelvincharlow78@gmail.com' : 
+                             link.name === 'GitHub' ? 'github.com/kelvincharlow' : 
                              'linkedin.com/in/kelvinmusyoki'}
                           </div>
                         </div>
